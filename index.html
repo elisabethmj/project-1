@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Using the input box to figure out js first -->
+    <input id="userinput" type="text">
+    <button id="submit">Submit</button>
+
+    <h1>Elise's Wordle</h1>
+
+    <!-- Starting to build ideal HTML/CSS layout but not using in DOM selection as of yet -->
+    <div class="input currentattempt" id="firstattempt">
+    <input class="tile" id="firstletter" maxlength="1" type="text">
+    <input class="tile" id="secondletter" maxlength="1" type="text">
+    <input class="tile" id="thirdletter" maxlength="1" type="text">
+    <input class="tile" id="fourthletter" maxlength="1" type="text">
+    <input class="tile" id="fifthletter" maxlength="1" type="text">
+    </div>
+
+    <div class="input" id="secondattempt">
+        <input class="tile" id="firstletter" maxlength="1" type="text">
+        <input class="tile" id="secondletter" maxlength="1" type="text">
+        <input class="tile" id="thirdletter" maxlength="1" type="text">
+        <input class="tile" id="fourthletter" maxlength="1" type="text">
+        <input class="tile" id="fifthletter" maxlength="1" type="text">
+        </div>
+
+    <div class="input" id="thirdattempt">
+    <input class="tile" id="firstletter" maxlength="1" type="text">
+    <input class="tile" id="secondletter" maxlength="1" type="text">
+    <input class="tile" id="thirdletter" maxlength="1" type="text">
+    <input class="tile" id="fourthletter" maxlength="1" type="text">
+    <input class="tile" id="fifthletter" maxlength="1" type="text">
+    </div>
+
+    <div class="input" id="fourthattempt">
+        <input class="tile" id="firstletter" maxlength="1" type="text">
+        <input class="tile" id="secondletter" maxlength="1" type="text">
+        <input class="tile" id="thirdletter" maxlength="1" type="text">
+        <input class="tile" id="fourthletter" maxlength="1" type="text">
+        <input class="tile" id="fifthletter" maxlength="1" type="text">
+    </div>
+
+    <div class="input" id="fifthattempt">
+        <input class="tile" id="firstletter" maxlength="1" type="text">
+        <input class="tile" id="secondletter" maxlength="1" type="text">
+        <input class="tile" id="thirdletter" maxlength="1" type="text">
+        <input class="tile" id="fourthletter" maxlength="1" type="text">
+        <input class="tile" id="fifthletter" maxlength="1" type="text">
+    </div>
+
+    <div id="submit">
+    <button id="submit-guess">Submit guess!</button>
+    </div>  
     
+    <script src="script.js"></script>
 </body>
 </html>
