@@ -1,18 +1,14 @@
-
-
-// //Variables for secret word and user input and submit button
-// //Compare function when submitted with button
 const secretWord = 'hello';
 const secretWordArray = secretWord.split('');
-const button = document.querySelector('#submit-guess');
+
 let userInputArray = [];
 
+const button = document.querySelector('#submit-guess');
+
+
 button.addEventListener('click', function() {
-    //Check Answer, give hints.
-    checkAnswer();
-    //If answer is correct, user wins! 
-    shouldGameContinue();
-    //if all letters are green - game over ? can either check user input = secret word OR if all tiles are green?
+    checkGuessGiveHints(); //Check Answer, give hints.
+    shouldGameContinue(); //If answer is correct, user wins! Otherwise, go to next attempt.
     //if not all green, game continues - allow user to make another attempt, need to track what attempt user is on.
         //need to move currentattempt class from 1st div to 2nd div, and so on.
     //6 attempts, not green - game over/display word
@@ -22,18 +18,10 @@ button.addEventListener('click', function() {
 
 
 
-function checkAnswer() {
-   //User input variable has to be in function so it's not grabbing value as page is loaded.
-    console.log(secretWordArray)
-    
-
-    //Loop to push separate letters into array to be compared to secret word
+function checkGuessGiveHints() {
+    //Push user's input in 'currentattempt' row to array so it can be compared
     for (const input of document.querySelectorAll('.currentattempt input')) { 
-    // console.log(input.value) 
         userInputArray.push((input.value).toLowerCase());
-        //console.log(userInputArray)
-
-        //As it iterates through array, check that letter against secret word and color tile accordingly?
     }
 
     //Massive code below to compare user input to secret word and give hints for tiles! - srsly needs some optimisation. Maybe put below code within loop that is currently pushing guess into an array?
@@ -96,17 +84,31 @@ function checkAnswer() {
         fifthtile.style.backgroundColor = 'grey';
     }
 
-    //Needs code that puts current attempt class to next line of input
-
 }
- 
+
+
+
 function shouldGameContinue() {
-    console.log(userInputArray);
-    //check if it's right --> WIN
-    
+    console.log(userInputArray)
+    if (userInputArray.join('') === secretWord) {
+        console.log('you win!');
+    } else {
+       goToNextAttempt();
+    }
 }
 
-    
+function goToNextAttempt() {
+    const attempts = document.querySelectorAll(".input");
+    for (let i = 0; i < attempts.length; ++i) {
+        if (attempts[i].classList.contains('currentattempt')) {
+            attempts[i].classList.remove('currentattempt');
+            attempts[i+1].classList.add('currentattempt');
+            break;
+        }
+      }
+     // console.log(attempts)
+}
+
 
 
 
