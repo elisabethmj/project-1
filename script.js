@@ -3,18 +3,29 @@
 // //Variables for secret word and user input and submit button
 // //Compare function when submitted with button
 const secretWord = 'hello';
+const secretWordArray = secretWord.split('');
 const button = document.querySelector('#submit-guess');
+let userInputArray = [];
 
-button.addEventListener('click', compare);
+button.addEventListener('click', function() {
+    //Check Answer, give hints.
+    checkAnswer();
+    //If answer is correct, user wins! 
+    shouldGameContinue();
+    //if all letters are green - game over ? can either check user input = secret word OR if all tiles are green?
+    //if not all green, game continues - allow user to make another attempt, need to track what attempt user is on.
+        //need to move currentattempt class from 1st div to 2nd div, and so on.
+    //6 attempts, not green - game over/display word
+});
 
 
-function compare() {
-    //Compare the secret word and user input - letter by letter - 
-    //1. User input and secret world will be a string. Split both strings into array of letters.
-    const secretWordArray = secretWord.split('');
+
+
+
+function checkAnswer() {
+   //User input variable has to be in function so it's not grabbing value as page is loaded.
+    console.log(secretWordArray)
     
-    //User input variable has to be in function so it's not grabbing value as page is loaded.
-    const userInputArray = [];
 
     //Loop to push separate letters into array to be compared to secret word
     for (const input of document.querySelectorAll('.currentattempt input')) { 
@@ -89,7 +100,11 @@ function compare() {
 
 }
  
-//Loop through inputs 
+function shouldGameContinue() {
+    console.log(userInputArray);
+    //check if it's right --> WIN
+    
+}
 
     
 
