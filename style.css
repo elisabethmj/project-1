@@ -38,3 +38,7 @@ h1 {
 .currentattempt > .tile {
     border: 1px solid rgb(210, 140, 11);
 }
+
+input:focus {
+    outline: rgb(215, 5, 131);
+  }
