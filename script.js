@@ -91,7 +91,6 @@ function checkGuessGiveHints() {
 
 
 function shouldGameContinue() {
-    console.log(userInputArray)
     if (userInputArray.join('') === secretWord) {
         alert('You guessed the ' + secretWord + ' correctly!');
     } else if (guessesRemaining === 0) {
@@ -108,12 +107,17 @@ function goToNextAttempt() {
     for (let i = 0; i < attempts.length; ++i) {
         if (attempts[i].classList.contains('currentattempt')) {
             attempts[i].classList.remove('currentattempt');
+                for (const babies of attempts[i].children) {
+                    babies.setAttribute('disabled', 'true');
+                }
             attempts[i+1].classList.add('currentattempt');
+                for (const child of attempts[i+1].children) { 
+                    child.removeAttribute('disabled');
+                }
             break;
         }
       }
 }
-
 
 
 
