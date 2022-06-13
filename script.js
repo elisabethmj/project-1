@@ -5,13 +5,13 @@ let userInputArray = [];
 
 const button = document.querySelector('#submit-guess');
 
+let guessesRemaining = 6;
+
 
 button.addEventListener('click', function() {
-    checkGuessGiveHints(); //Check Answer, give hints.
-    shouldGameContinue(); //If answer is correct, user wins! Otherwise, go to next attempt.
-    //if not all green, game continues - allow user to make another attempt, need to track what attempt user is on.
-        //need to move currentattempt class from 1st div to 2nd div, and so on.
-    //6 attempts, not green - game over/display word
+    guessesRemaining-- 
+    checkGuessGiveHints();
+    shouldGameContinue(); 
 });
 
 
@@ -19,6 +19,8 @@ button.addEventListener('click', function() {
 
 
 function checkGuessGiveHints() {
+    userInputArray.length = 0;
+
     //Push user's input in 'currentattempt' row to array so it can be compared
     for (const input of document.querySelectorAll('.currentattempt input')) { 
         userInputArray.push((input.value).toLowerCase());
@@ -91,14 +93,18 @@ function checkGuessGiveHints() {
 function shouldGameContinue() {
     console.log(userInputArray)
     if (userInputArray.join('') === secretWord) {
-        console.log('you win!');
+        alert('You guessed the ' + secretWord + ' correctly!');
+    } else if (guessesRemaining === 0) {
+        alert('Sorry, you have no guesses remaining. The secret word was ' + secretWord + '.')
     } else {
        goToNextAttempt();
     }
 }
 
+
+
 function goToNextAttempt() {
-    const attempts = document.querySelectorAll(".input");
+    const attempts = document.querySelectorAll('.input');
     for (let i = 0; i < attempts.length; ++i) {
         if (attempts[i].classList.contains('currentattempt')) {
             attempts[i].classList.remove('currentattempt');
@@ -106,7 +112,6 @@ function goToNextAttempt() {
             break;
         }
       }
-     // console.log(attempts)
 }
 
 
