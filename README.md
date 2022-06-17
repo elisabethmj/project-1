@@ -23,7 +23,7 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 
 
 
-# Cloning repo
+### Cloning repo
 
 1. On GitHub.com, navigate to [Elise's github Repository](https://github.com/elisabethmj/project-1)
 
@@ -32,7 +32,7 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 3. You then have to connect your remote machine with origin upstream?
 
 
-# Future improvements
+### Future improvements
 
 1. Have function that listens to keydown and whether maxlength in input reached so that when user types a valid letter or arrow is pressed, the focus goes to the next tile automatically. Also if backspace pressed or back arrow pressed, it goes to previous tile. Would have to check for current input value length.
 
@@ -47,12 +47,24 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 6. Add a new game button.
 
 
-# Acknowledgements
+### Acknowledgements
 
-1. [Youtube tutorial for lettersOnly()] (https://www.youtube.com/watch?v=OpajusnOfYo)
+1. [Youtube tutorial where I got lettersOnly() function](https://www.youtube.com/watch?v=OpajusnOfYo)
 
-2. Go to next attempt function was based on code snippet Ken sent me
+2. Go to next attempt function was based on code snippet Ken sent me:
+
+    `// highlight user next attempt
+    const attempts = document.querySelectorAll(".input");
+    for (let i = 0; i < attempts.length; ++i) {
+         if (attempts[i].classList.contains("currentattempt")) {
+            break;
+        }
+    }
+
+    attempts[i].classList.remove("currentattempt");
+    attempts[i+1].classList.add("currentattempt");`
 
 
+3. [Function moveAround() taken from stackoverflow answer](https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value)
 
 

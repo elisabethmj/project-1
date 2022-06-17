@@ -12,12 +12,46 @@ const button = document.querySelector('#submit-guess'); //stores button from DOM
 let guessesRemaining = 6; //variable to check guesses remaining
 let trigger = false; //should probably name this something better but allows the onclick function to check if user input is valid
 
-//document.body.addEventListener("keydown", checkUserAction);
+
 
 //Credit for below code from tutorial: https://www.youtube.com/watch?v=OpajusnOfYo
 function lettersOnly(input) { //This function is called in the HTML at each input. Passes in the input value.
     const regex = /[^a-z]/gi; //g = global, i = non-case sensitive, ^ = 'everything except', a-z = a through z
     input.value = input.value.replace(regex, ''); //replaces anything in input value that isn't a-z (i.e. any numbers or symbols) with nothing
+}
+
+function moveAround(input) {
+       //https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
+       const container = document.getElementsByClassName('currentattempt')[0];
+
+       container.onkeyup = function(e) {
+       const target = e.srcElement || e.target;
+       const maxLength = Number(target.attributes["maxlength"].value, 10);
+       let myLength = target.value.length;
+       if (myLength >= maxLength) {
+           let next = target;
+           while (next = next.nextElementSibling) {
+               if (next == null)
+                   break;
+               if (next.tagName.toLowerCase() === "input") {
+                   next.focus();
+                   break;
+               }
+           }
+       }
+       // Move to previous field if empty (user pressed backspace)
+       else if (myLength === 0) {
+           let previous = target;
+           while (previous = previous.previousElementSibling) {
+               if (previous == null)
+                   break;
+               if (previous.tagName.toLowerCase() === "input") {
+                   previous.focus();
+                   break;
+               }
+           }
+       }
+   }
 }
 
 button.addEventListener('click', function() {
@@ -31,7 +65,7 @@ button.addEventListener('click', function() {
         checkGuessGiveHints(); //checks word and gives hints
         hasWinConditionBeenMet(); //checks if word is correct or if guesses have run out
         } else { //i.e. if trigger = false, tells user to try again
-            alert('Try again. You must enter 5 letters, it must be an actual word, and it should not be plural.')
+            alert('Try that again. You must enter 5 letters, it must be an actual word, and it should not be plural.')
         }
     });
 
@@ -126,11 +160,13 @@ function hasWinConditionBeenMet() {
         alert('You guessed the secret word "' + secretWord + '" correctly!');
         for (const tiles of document.querySelectorAll('.currentattempt > .tile')) { 
             tiles.setAttribute('disabled', 'true');
+            button.disabled = true;
         }
     } else if (guessesRemaining === 0) {
         alert('You have no guesses remaining. The secret word was "' + secretWord + '".')
         for (const tiles of document.querySelectorAll('#sixthattempt > .tile')) { 
             tiles.setAttribute('disabled', 'true');
+            button.disabled = true;
         }
     } else {
        goToNextAttempt();
@@ -151,7 +187,11 @@ function goToNextAttempt() {
                 for (const tiles of attempts[i+1].children) { 
                     tiles.removeAttribute('disabled');
                 }
+                //attempts[i+1].children[0].setAttribute('autofocus', 'true');
+                //console.log(attempts[i+1].children[0].getAttribute('autofocus'))
+                //attempts[i+1].children[0].focus()
             break;
         }
       }
     }
+
