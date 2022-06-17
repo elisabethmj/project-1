@@ -1,8 +1,8 @@
 # Wordle-ish
 
-## Deployed game: [Github Pages] (https://elisabethmj.github.io/project-1/)
+## [Elise's deployed game](https://elisabethmj.github.io/project-1/)
 
-## Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
+## [Elise's github Repository](https://github.com/elisabethmj/project-1)
 
 ![Imgur](https://i.imgur.com/PUOpqF6.png)
 
@@ -25,9 +25,9 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 
 # Cloning repo
 
-1. On GitHub.com, navigate to [Github Pages] (https://github.com/elisabethmj/project-1)
+1. On GitHub.com, navigate to [Elise's github Repository](https://github.com/elisabethmj/project-1)
 
-2. Follow these instructions from Github [Github docs] (https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+2. Follow these instructions from Github: [Github docs: Cloning a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 3. You then have to connect your remote machine with origin upstream?
 
