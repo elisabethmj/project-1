@@ -4,7 +4,7 @@
 
 ## Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
 
-! [Imgur](https://i.imgur.com/PUOpqF6.png)
+![Imgur](https://i.imgur.com/PUOpqF6.png)
 
 
 ## How to play
