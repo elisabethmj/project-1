@@ -1,8 +1,8 @@
 #Wordle-ish
 
-#Deployed game: [Github Pages] (https://elisabethmj.github.io/project-1/)
+##Deployed game: [Github Pages] (https://elisabethmj.github.io/project-1/)
 
-#Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
+##Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
 
 [Imgur](https://i.imgur.com/PUOpqF6.png)
 
