@@ -1,19 +1,32 @@
 
+body {
+    background-color: black;
+}
+
 h1 {
     text-align: center;
-    font-size: 8vh;
+    font-size: 10vh;
+    font-family: 'Space Mono', monospace;
+    color: white;
+}
+
+h1 > span {
+    font-size: 3vh;
 }
 
 .tile {
+    background-color: rgba(0, 0, 0, 0.908);
     height: 8vh;
     width: 8vh;
     border: 1px solid grey;
     margin: 1px;
-
-    text-transform: uppercase;
+    
+    color: white;
+    text-transform: lowercase;
     text-align: center;
     font-size: 4vh;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Space Mono', monospace;
+    border-radius: 10px;
 }
 
 .input {
@@ -33,12 +46,29 @@ h1 {
     width: 30vw;
     height: 5vh;
     margin-bottom: 10vh;
+
+    border-radius: 10px;
+    background-color: #B537F2;
+    font-family: 'Space Mono', monospace;
+    border: solid #B537F2;
+    color: black;
 }
 
 .currentattempt > .tile {
-    border: 1px solid rgb(210, 140, 11);
+    border: 1px solid #B537F2;
 }
 
 input:focus {
-    outline: rgb(215, 5, 131);
+    outline: none;
   }
+
+input:disabled {
+    background-color: black;
+    border: 1px solid black;
+}
+
+#hello {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}

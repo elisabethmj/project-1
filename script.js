@@ -12,17 +12,18 @@ const button = document.querySelector('#submit-guess'); //stores button from DOM
 let guessesRemaining = 6; //variable to check guesses remaining
 let trigger = false; //should probably name this something better but allows the onclick function to check if user input is valid
 
+//document.body.addEventListener("keydown", checkUserAction);
+
 //Credit for below code from tutorial: https://www.youtube.com/watch?v=OpajusnOfYo
 function lettersOnly(input) { //This function is called in the HTML at each input. Passes in the input value.
     const regex = /[^a-z]/gi; //g = global, i = non-case sensitive, ^ = 'everything except', a-z = a through z
-    input.value = input.value.replace(regex, ""); //replaces anything in input value that isn't a-z (i.e. any numbers or symbols) with nothing
+    input.value = input.value.replace(regex, ''); //replaces anything in input value that isn't a-z (i.e. any numbers or symbols) with nothing
 }
 
 button.addEventListener('click', function() {
         getUserInput(); //actually obtains users guess input
         // console.log(guessesRemaining); 
-        // console.log(secretWord);
-
+        console.log(secretWord);
         if (trigger === true) { //in getUserInput, function checkUserInputIsAWord() checks if it is actually a word. If it is not a word, trigger will be false and this code will not run. 
         // console.log(secretWord);
         // console.log(guessesRemaining);
@@ -30,11 +31,9 @@ button.addEventListener('click', function() {
         checkGuessGiveHints(); //checks word and gives hints
         hasWinConditionBeenMet(); //checks if word is correct or if guesses have run out
         } else { //i.e. if trigger = false, tells user to try again
-            alert('Try again. You must enter 5 letters, and it must be an actual word!')
+            alert('Try again. You must enter 5 letters, it must be an actual word, and it should not be plural.')
         }
     });
-
-
 
 
 function getUserInput() {
@@ -61,70 +60,70 @@ function checkGuessGiveHints() {
     //Massive code below to compare user input to secret word and give hints for tiles! - srsly needs some optimisation. Maybe put below code within loop that is currently pushing guess into an array?
     const firsttile = document.querySelector('.currentattempt > #firstletter');
     if (userInputArray[0] === secretWordArray[0]) {
-        //console.log('0 green');
-        firsttile.style.backgroundColor = 'green';
+        //console.log('0 #3CB9FC');
+        firsttile.style.backgroundColor = '#3CB9FC';
     } else if (secretWordArray.includes(userInputArray[0])) {
-        //console.log('0 yellow');
-        firsttile.style.backgroundColor = 'yellow';
+        //console.log('0 ##B537F2');
+        firsttile.style.backgroundColor = '#B537F2';
     } else if (!secretWordArray.includes(userInputArray[0])) {
         //console.log('0 black');
-        firsttile.style.backgroundColor = 'grey';
+        firsttile.style.backgroundColor = '#120052';
     }
 
     const secondtile = document.querySelector('.currentattempt > #secondletter');
     if (userInputArray[1] === secretWordArray[1]) {
         //console.log('1 green');
-        secondtile.style.backgroundColor = 'green';
+        secondtile.style.backgroundColor = '#3CB9FC';
     } else if (secretWordArray.includes(userInputArray[1])) {
         //console.log('1 yellow');
-        secondtile.style.backgroundColor = 'yellow';
+        secondtile.style.backgroundColor = '#B537F2';
     } else if (!secretWordArray.includes(userInputArray[1])) {
         //console.log('1 black');
-        secondtile.style.backgroundColor = 'grey';
+        secondtile.style.backgroundColor = '#120052';
     }
 
     const thirdtile = document.querySelector('.currentattempt > #thirdletter');
     if (userInputArray[2] === secretWordArray[2]) {
-        //console.log('2 green');
-        thirdtile.style.backgroundColor = 'green';
+        //console.log('2 #3CB9FC');
+        thirdtile.style.backgroundColor = '#3CB9FC';
     } else if (secretWordArray.includes(userInputArray[2])) {
-        //console.log('2 yellow');
-        thirdtile.style.backgroundColor = 'yellow';
+        //console.log('2 ##B537F2');
+        thirdtile.style.backgroundColor = '#B537F2';
     } else if (!secretWordArray.includes(userInputArray[2])) {
         //console.log('2 black');
-        thirdtile.style.backgroundColor = 'grey';
+        thirdtile.style.backgroundColor = '#120052';
     }
 
     const fourthtile = document.querySelector('.currentattempt > #fourthletter');
     if (userInputArray[3] === secretWordArray[3]) {
-        //console.log('3 green');
-        fourthtile.style.backgroundColor = 'green';
+        //console.log('3 #3CB9FC');
+        fourthtile.style.backgroundColor = '#3CB9FC';
     } else if (secretWordArray.includes(userInputArray[3])) {
-        //console.log('3 yellow');
-        fourthtile.style.backgroundColor = 'yellow';
+        //console.log('3 ##B537F2');
+        fourthtile.style.backgroundColor = '#B537F2';
     } else if (!secretWordArray.includes(userInputArray[3])) {
         //console.log('3 black');
-        fourthtile.style.backgroundColor = 'grey';
+        fourthtile.style.backgroundColor = '#120052';
     }
     const fifthtile = document.querySelector('.currentattempt > #fifthletter');
     if (userInputArray[4] === secretWordArray[4]) {
-        //console.log('4 green');
-        fifthtile.style.backgroundColor = 'green';
+        //console.log('4 #3CB9FC');
+        fifthtile.style.backgroundColor = '#3CB9FC';
     } else if (secretWordArray.includes(userInputArray[4])) {
-        //console.log('4 yellow');
-        fifthtile.style.backgroundColor = 'yellow';
+        //console.log('4 ##B537F2');
+        fifthtile.style.backgroundColor = '#B537F2';
     } else if (!secretWordArray.includes(userInputArray[4])) {
         //console.log('4 black');
-        fifthtile.style.backgroundColor = 'grey';
+        fifthtile.style.backgroundColor = '#120052';
     }
-
 }
+
 
 
 
 function hasWinConditionBeenMet() {
     if (userInputArray.join('') === secretWord) {
-        alert('You guessed "' + secretWord + '" correctly!');
+        alert('You guessed the secret word "' + secretWord + '" correctly!');
         for (const tiles of document.querySelectorAll('.currentattempt > .tile')) { 
             tiles.setAttribute('disabled', 'true');
         }
@@ -155,5 +154,4 @@ function goToNextAttempt() {
             break;
         }
       }
-}
-
+    }
