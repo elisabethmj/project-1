@@ -1,12 +1,13 @@
-#Wordle-ish
+# Wordle-ish
 
-##Deployed game: [Github Pages] (https://elisabethmj.github.io/project-1/)
+## Deployed game: [Github Pages] (https://elisabethmj.github.io/project-1/)
 
-##Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
+## Github Repository: [Github Pages] (https://github.com/elisabethmj/project-1)
 
-[Imgur](https://i.imgur.com/PUOpqF6.png)
+! [Imgur](https://i.imgur.com/PUOpqF6.png)
 
-##How to play
+
+## How to play
 
 1. Enter a 5 letter word. If the user inputs a non-alpha letter, this will automatically be replaced with nothing. If the user enters less than 5 letters, a non-sensible word i.e. not a word or it is plural, an alert tells them to try again.
 
@@ -21,7 +22,8 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 4. If the user guesses the word correctly or they get to all 6 attempts, the game ends.
 
 
-#Cloning repo
+
+# Cloning repo
 
 1. On GitHub.com, navigate to [Github Pages] (https://github.com/elisabethmj/project-1)
 
@@ -29,7 +31,8 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 
 3. You then have to connect your remote machine with origin upstream?
 
-#Future improvements
+
+# Future improvements
 
 1. Have function that listens to keydown and whether maxlength in input reached so that when user types a valid letter or arrow is pressed, the focus goes to the next tile automatically. Also if backspace pressed or back arrow pressed, it goes to previous tile. Would have to check for current input value length.
 
@@ -43,7 +46,8 @@ I used an unconventional pallette (probably more confusing than green, yellow an
 
 6. Add a new game button.
 
-#Acknowledgements
+
+# Acknowledgements
 
 1. [Youtube tutorial for lettersOnly()] (https://www.youtube.com/watch?v=OpajusnOfYo)
 
